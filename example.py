@@ -20,7 +20,6 @@ def loading_model():
         cv2.imshow('frame', frame)
         get_max_prediction(prediction)
         # Press q to close the window
-        print(f'List of probabilities for Rock,Paper,Scissors and Nothing class respectively is: {prediction}')
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break 
     # After the loop release the cap object
