@@ -11,23 +11,20 @@ def get_user_choice():
     user_selected_input = input("please enter input : ")
     return user_selected_input
 
-# Saving function outputs to variables
-get_computer_choice = get_computer_choice()
-get_user_choice = get_user_choice()
-
 #Task 2 
-
-def get_winner(get_computer_choice,get_user_choice):
-    winner = ''
-    if get_computer_choice or get_user_choice not in inputs:
-        print("Invalid inputs")
+def get_winner(computer_choice,user_choice):
+    if (computer_choice == 'Rock' and user_choice == 'Paper') or (computer_choice == 'Paper' and user_choice == 'Scissors') or (computer_choice == 'Scissors' and user_choice == 'Rock'):
+        print("You Won!")
+    elif computer_choice == user_choice:
+        print("It's a Tie!")
     else:
-        if (get_computer_choice == 'Rock' and get_user_choice == 'Paper') or (get_computer_choice == 'Paper' and get_user_choice == 'Scissors') or (get_computer_choice == 'Scissors' and get_user_choice == 'Rock'):
-            winner = 'Computer'
-            print("You lost")
-        elif get_computer_choice == get_user_choice:
-            print("It's a Tie!")
-        else:
-            winner = 'User'
-            print("You won!")
-    return winner 
+        print("You Lost!, Computer is the winner")
+
+
+get_computer_choice()
+get_user_choice()
+
+computer_choice = get_computer_choice()
+user_choice = get_user_choice()
+
+get_winner(computer_choice,user_choice)
