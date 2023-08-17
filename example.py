@@ -5,18 +5,17 @@ import numpy as np
 import time
 
 
-class Rockpaperscissor:
-    def __init__(self):
+class RockPaperScissor:
+    def __init__(self, number_of_rounds, computer_score, user_score):
         self.number_of_rounds = 3
         self.computer_score = 0
         self.user_score = 0
-        self.user_choice = ''
-        self.ccomputer_choice = ''
 
     def get_computer_choice(self):
-        computer_choice = random.choice(['Rock','Paper','Scissors'])
-        return computer_choice
-    
+        while self.number_of_rounds <3:
+            computer_choice = random.choice(['Rock','Paper','Scissors'])
+            return computer_choice
+        
     def get_user_choice(self,prediction):
         if np.argmax(prediction) == 0:
             self.user_choice = 'Rock'
@@ -31,16 +30,19 @@ class Rockpaperscissor:
             self.user_choice = 'Nothing'
             return self.user_choice
         
-    def get_winner(self,computer_choice,user_choice):
-            if (self.computer_choice == 'Rock' and self.user_choice == 'Paper') or (self.computer_choice == 'Paper' and self.user_choice == 'Scissors') or (self.computer_choice == 'Scissors' and self.user_choice == 'Rock'):
-                print("You Won!")
-            elif self.computer_choice == self.user_choice:
-                print("It's a Tie!")
-            else:
-                print("You Lost!, Computer is the winner")
+    def get_winner(self, computer_choice, user_choice):
+            while computer_score or user_score <3:
+                if (computer_choice == 'Rock' and user_choice == 'Paper') or (computer_choice == 'Paper' and user_choice == 'Scissors') or (computer_choice == 'Scissors' and user_choice == 'Rock'):
+                    user_score +=1
+                    print("You Won!")
+                elif computer_choice == user_choice:
+                    print("It's a Tie!")
+                else:
+                    computer_score +=1
+                    print("You Lost!, Computer is the winner")
 
     def load_model(self):
-        while self.computer_score or self.user_score <3:
+        while self.number_of_rounds < 3:
             start_time = time.time()
             print(start_time)
             model = load_model('keras_model.h5')
@@ -66,6 +68,13 @@ class Rockpaperscissor:
             cap.release()
             # Destroy all the windows
             cv2.destroyAllWindows()
+
+
+rockpaperscissor = RockPaperScissor()
+rockpaperscissor.get_computer_choice()
+rockpaperscissor.load_model()
+rockpaperscissor.get_winner()
+
 
  
 

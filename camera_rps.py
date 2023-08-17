@@ -21,7 +21,7 @@ class Rockpaperscissor:
             self.user_choice = 'Paper'
             return self.user_choice
         elif np.argmax(prediction) == 2:
-            self.user_choice = 'Scissor'
+            self.user_choice = 'Scissors'
             return self.user_choice 
         else:
             self.user_choice = 'Nothing'
