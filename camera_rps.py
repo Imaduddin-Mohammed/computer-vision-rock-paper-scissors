@@ -28,20 +28,6 @@ class RockPaperScissor:
         else:
             self.user_choice = 'Nothing'
             return self.user_choice
-        
-    def get_winner(self, computer_choice, user_choice):
-        result = ''
-        if (computer_choice == 'Rock' and user_choice == 'Paper') or (computer_choice == 'Paper' and user_choice == 'Scissors') or (computer_choice == 'Scissors' and user_choice == 'Rock'):
-            user_score +=1
-            print("You Won!")
-            result = 'User'
-        elif computer_choice == user_choice:
-            print("It's a Tie!")
-        else:
-            computer_score +=1
-            print("You Lost!, Computer is the winner")
-            result = 'Computer'
-        return result 
 
     def load_model(self):
             start_time = time.time()
@@ -70,6 +56,20 @@ class RockPaperScissor:
             # Destroy all the windows
             cv2.destroyAllWindows()
 
+    def get_winner(self, computer_choice, user_choice):
+        result = ''
+        if (computer_choice == 'Rock' and user_choice == 'Paper') or (computer_choice == 'Paper' and user_choice == 'Scissors') or (computer_choice == 'Scissors' and user_choice == 'Rock'):
+            user_score +=1
+            print("You Won!")
+            result = 'User'
+        elif computer_choice == user_choice:
+            print("It's a Tie!")
+        else:
+            computer_score +=1
+            print("You Lost!, Computer is the winner")
+            result = 'Computer'
+        return result 
+    
     def play(self):
         while self.number_of_rounds <3:
             self.get_computer_choice()
