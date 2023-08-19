@@ -6,7 +6,7 @@ import time
 
 
 class RockPaperScissor:
-    def __init__(self, number_of_rounds, computer_score, user_score):
+    def __init__(self):
         self.number_of_rounds = 3
         self.computer_score = 0
         self.user_score = 0
@@ -70,10 +70,6 @@ class RockPaperScissor:
             cv2.destroyAllWindows()
 
 
-rockpaperscissor = RockPaperScissor()
-rockpaperscissor.get_computer_choice()
-rockpaperscissor.load_model()
-rockpaperscissor.get_winner()
 
 
  
