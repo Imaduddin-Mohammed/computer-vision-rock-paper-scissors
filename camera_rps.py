@@ -12,8 +12,8 @@ class RockPaperScissor:
         self.user_wins = 0
 
     def get_computer_choice(self):
-        computer_choice = random.choice(['Rock','Paper','Scissors'])
-        return computer_choice
+        self.computer_choice = random.choice(['Rock','Paper','Scissors'])
+        return self.computer_choice
         
     def get_user_choice(self,prediction):
         if np.argmax(prediction) == 0:
@@ -31,10 +31,10 @@ class RockPaperScissor:
 
     def load_model(self):
             start_time = time.time()
-            print(start_time)
             model = load_model('keras_model.h5')
             cap = cv2.VideoCapture(0)
             data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+            countdown = start_time + 5
             while True: 
                 ret, frame = cap.read()
                 resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
@@ -44,11 +44,11 @@ class RockPaperScissor:
                 prediction = model.predict(data)
                 cv2.imshow('frame', frame)
                 self.get_user_choice(prediction)
+                print(countdown - time.time())
                 # Press q to close the window
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break 
             current_time = time.time()
-            print(current_time)
             elapsed_time = {current_time - start_time}
             print(f"Time elapsed: {elapsed_time} seconds since the script started")
             # After the loop release the cap object
@@ -56,13 +56,13 @@ class RockPaperScissor:
             # Destroy all the windows
             cv2.destroyAllWindows()
 
-    def get_winner(self, computer_choice, user_choice):
+    def get_winner(self):
         while self.computer_wins < 3 or self.user_wins < 3:
-            if (computer_choice == 'Rock' and user_choice == 'Paper') or (computer_choice == 'Paper' and user_choice == 'Scissors') or (computer_choice == 'Scissors' and user_choice == 'Rock'):
+            if (self.computer_choice == 'Rock' and self.user_choice == 'Paper') or (self.computer_choice == 'Paper' and self.user_choice == 'Scissors') or (self.computer_choice == 'Scissors' and self.user_choice == 'Rock'):
                 self.user_wins +=1
                 print("You Won!")
                 return self.user_wins
-            elif computer_choice == user_choice:
+            elif self.computer_choice == self.user_choice:
                 print("It's a Tie!")
             else:
                 self.computer_wins +=1
@@ -70,11 +70,20 @@ class RockPaperScissor:
             return self.computer_wins 
     
     def play(self):
-        while self.number_of_rounds < 3: 
+        while True:
             self.get_computer_choice()
             self.load_model()
-            self. get_winner(self.computer_choice, self.user_choice)
+            self.get_winner()
+            print(f"No. of runs: user chose : {self.user_choice}, computer chose : {self.computer_choice}")
+            print(f"user score is : {self.user_wins} computer score is : {self.computer_wins}")
+            if self.user_wins == 3:
+                print("User wins")
+                exit()
+            elif self.computer_wins ==3:
+                print("Computer wins")
+                exit()
             
+
 
 game = RockPaperScissor()
 game.play()
