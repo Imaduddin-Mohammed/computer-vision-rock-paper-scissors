@@ -1,3 +1,12 @@
+"""
+This file contains all the code that will start the camera and capture the user choice and compare it with the random computer choice and prints the winner of the game.
+
+All the logic defined earlier in manual_rps.py and play_computer-vision.py is present in this file. Additionally it contains the function "load_model()" which is
+essential to load the trained keras_model.h5"
+Once the camera starts the user provides the input in the form of hand gesture showing either(Rock/Paper/Scissors/Nothing)
+"""
+
+
 import cv2
 import random
 from keras.models import load_model
