@@ -1,3 +1,9 @@
+"""
+This file contains the logic of RockPaperScissors game
+
+Individial functions are created for saving the user and computer choice, get_winner() function takes in the user & computer choice as parameters and 
+prints the winner based on the hard coded logic of the game.
+"""
 #Task 1
 import random
 
