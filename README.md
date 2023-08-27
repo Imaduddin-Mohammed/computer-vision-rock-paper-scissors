@@ -1,9 +1,11 @@
-# computer-vision-rock-paper-scissors
+# Computer-Vision-Rock-Paper-Scissors
   > Rock-Paper-Scissors is a game in which a player simultaneously shows one of the three hand signals representing rock, paper, or scissors. Rock beats scissors. Scissors beats paper. Paper beats rock. The player who shows the first option that beats the other player's option wins. This is an implementation of an interactive Rock-Paper-Scissors game, in which the user can play with the computer using the camera.
 
 
-## A brief list of steps to run this project
-> clone this repository to your local machine git clone <>
+## To run this game yourself please follow the steps below
+> Clone this repository to your local machine by going to your command prompt and creating a directory and copy and paste this code git clone
+``` <https://github.com/Imaduddin-Mohammed/computer-vision-rock-paper-scissors.git> ```
+> 
 
 
 ## Milestone 1 
