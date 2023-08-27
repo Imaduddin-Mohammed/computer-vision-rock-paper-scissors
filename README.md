@@ -3,7 +3,7 @@
 
 
 ## A brief list of steps to run this project
--
+> clone this repository to your local machine git clone <>
 
 
 ## Milestone 1 
