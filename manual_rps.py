@@ -11,6 +11,7 @@ inputs = ['Rock','Paper','Scissors']
 
 def get_computer_choice():
     computer_choice = random.choice(inputs)
+    print(f'Computer choice is : {computer_choice}')
     return computer_choice
 
 def get_user_choice():
@@ -26,11 +27,8 @@ def get_winner(computer_choice,user_choice):
     else:
         print("You Lost!, Computer is the winner")
 
+var1 = get_user_choice()
+var2 = get_computer_choice()
 
-get_computer_choice()
-get_user_choice()
+get_winner(var2,var1)
 
-computer_choice = get_computer_choice()
-user_choice = get_user_choice()
-
-get_winner(computer_choice,user_choice)
