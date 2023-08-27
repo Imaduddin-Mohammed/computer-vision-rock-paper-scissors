@@ -3,7 +3,7 @@
 
 
 ## To run this game yourself please follow the steps below
-> Clone this repository to your local machine by going to your command prompt and creating a directory and navigate to it then **paste this code in the terminal** ``` git clone <https://github.com/Imaduddin-Mohammed/computer-vision-rock-paper-scissors.git> ```
+> Clone this repository to your local machine by going to your command prompt and create a directory and navigate to it, **then paste this code in the terminal** ``` git clone <https://github.com/Imaduddin-Mohammed/computer-vision-rock-paper-scissors.git> ```
 > 
 
 
