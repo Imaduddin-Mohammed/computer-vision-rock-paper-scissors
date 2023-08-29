@@ -13,7 +13,7 @@ pip install requirements.txt
 ```python
 python camera_rps.py
 ```
-- Providing input to the camera in the form of 'Rock' or 'Paper' or 'Scissors' and pressing **q** on the keyboard will feed the input, this will be looped until one of the player finally wins
+- Now provide the input to the camera in the form of 'Rock' or 'Paper' or 'Scissors' or 'Nothing' and pressing **q** on the keyboard will feed the input, this will be looped until one of the player finally wins
 - Once a player wins, the game is terminated and winner is printed to the console.
 
 ## Milestone 1 
