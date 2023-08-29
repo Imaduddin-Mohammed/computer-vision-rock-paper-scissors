@@ -3,8 +3,9 @@
 
 
 ### To run this game yourself please follow the steps below
-- First you have to clone this repository to your local machine. Create a directory where you want to save the game and **then paste this code in the terminal** ``` git clone <https://github.com/Imaduddin-Mohammed/computer-vision-rock-paper-scissors.git> ```
-- To install the dependencies from file named **requirements.txt** *copy and paste* the following code:
+- First you have to clone this repository to your local machine. Create a directory where you want to save the game and then *paste this code* in the terminal:
+- ``` git clone <https://github.com/Imaduddin-Mohammed/computer-vision-rock-paper-scissors.git> ```
+- To install the dependencies from file named **requirements.txt**, make sure you do this in the intended environment you wish to install, *copy and paste* the following code:
 ```python
 pip install requirements.txt
 ```
