@@ -8,22 +8,29 @@
 ```python
 pip install requirements.txt
 ```
+- Now activate the environment in which you have these dependencies installed, then in bash terminal run the following code:
+```python
+python camera_rps.py
+```
+- Providing input to the camera in the form of 'Rock' or 'Paper' or 'Scissors' and pressing **q** on the keyboard will feed the input, this will be looped until one of the player finally wins
+- Once a player wins, the game is terminated and winner is printed to the console.
 
 ## Milestone 1 
 > Setting up the environment
   > Created a git repository for this project and cloned it to my local machine.
 
 ## Milestone 2
-> Creating the computer vision system
+> Creating the Computer Vision System
   > First task will involve creating the model which is basically the webcam of computer recognizing the inputs rock, paper, scissors and nothing as input.
 
 ### Task 1
 > Creating image project model which has 4 classes namely ROCK, PAPER, SCISSORS, NOTHING
 > Google's Teachable machine was used to train the 4 classes and train the model.
 ### Task 2 
-> Downloading the trained model from Tensorflow tab of Teachable Machine in keras format >> keras_model.h5 and its labels as > labels.txt
-> These files contain the structure and the parameters of the deep learning model
+> Downloading the trained model from Tensorflow tab of Teachable Machine in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
+> These files contain the structure and the parameters of the deep learning model.
 ### Task 3
+>
 
 
 
