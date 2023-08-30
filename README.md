@@ -26,7 +26,7 @@ python camera_rps.py
 ### Task 1
 - Creating image project model which has 4 classes namely Rock, Paper, Scissors and Nothing
 - Google's Teachable machine was used to train the 4 classes and train the model.
-![Google's Teachable Machine](computer-vision-rock-paper-scissors\teachable_machine_model_training.png)
+![Google's Teachable Machine](manual_rps.png)
 ### Task 2 
 - Downloading the trained model from Tensorflow tab of Teachable Machine in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
 - These files contain the structure and the parameters of the deep learning model.
@@ -75,7 +75,7 @@ Predictions holds a list of probabilites as shown below
 ##Task 1
 - Storing the users and computer's choice in variables 
 - This is done manually without a camera as shown below 
-![manual game logic](computer-vision-rock-paper-scissors\manual_rps.png)
+![manual game logic](manual_rps.png)
 
 
 
