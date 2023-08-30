@@ -14,28 +14,29 @@ pip install requirements.txt
 python camera_rps.py
 ```
 - Now provide the input to the camera in the form of 'Rock' or 'Paper' or 'Scissors' or 'Nothing' and pressing **q** on the keyboard will feed the input, this will be looped until one of the player finally wins
-- Once a player wins, the game is terminated and winner is printed to the console.
+- Once a player wins, the game is terminated and ==Winner== is printed to the console.
 
 ## Milestone 1 
 > Setting up the environment
-  > Created a git repository for this project and cloned it to my local machine.
+  - Created a git repository for this project and cloned it to my local machine.
 
 ## Milestone 2
 > Creating the Computer Vision System
-  > First task will involve creating the model which is basically the webcam of computer recognizing the inputs rock, paper, scissors and nothing as input.
+  - First task will involve creating the model which is basically the webcam of computer recognizing the inputs Rock, Paper, Scissors and Nothing as input.
 
 ### Task 1
-> Creating image project model which has 4 classes namely ROCK, PAPER, SCISSORS, NOTHING
-> Google's Teachable machine was used to train the 4 classes and train the model.
+- Creating image project model which has 4 classes namely Rock, Paper, Scissors and Nothing
+- Google's ==Teachable machine== was used to train the 4 classes and train the model.
+![Google's Teachable Machine]()
 ### Task 2 
-> Downloading the trained model from Tensorflow tab of Teachable Machine in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
-> These files contain the structure and the parameters of the deep learning model.
+- Downloading the trained model from ==Tensorflow tab== of ==Teachable Machine== in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
+- These files contain the structure and the parameters of the deep learning model.
 
 ## Milestone 3
-### Installing the Dependencies
+> Installing the Dependencies
 ### Task1
-> Created a new virtual environment
-> The following dependencies are essential for this project, installed them using *``` pip install <packagename> ```*
+- Created a new virtual environment
+- The following dependencies are essential for this project, installed them using *``` pip install <packagename> ```*
 - opencv-python,tensorflow, ipykernel
 ### Task2
 > To ensure that the *keras_model.h5* model works I ran the following code:
@@ -65,9 +66,18 @@ cap.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
 ```
-> The main thing in the above code is the **prediction** variable which will containg the output in the form of floating numbers which are rock, paper, scissors and nothing probabilities.
+- The main thing in the above code is the **prediction** variable which will containg the output in the form of floating numbers which are rock, paper, scissors and nothing probabilities respectively.
+- For example, if the prediction has the following output: ==[[0.8, 0.1, 0.05, 0.05]]==, there is an 80% chance that the input image shows rock, a 10% chance that it shows paper, a 5% chance that it shows scissors, and a 5% chance that it shows nothing
 Predictions holds a list of probabilites as shown below
 ![Prediction variable]()
+
+# Milestone 4
+> Created a python script that will simulate the rock paper scissors game and compare the input with the computer's choice and show the winner
+##Task 1
+- Storing the users and computer's choice
+- This is done manually without a camera as shown below
+![manual_rps.py]()
+
 
 
 
