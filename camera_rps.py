@@ -6,7 +6,6 @@ essential to load the trained keras_model.h5"
 Once the camera starts the user provides the input in the form of hand gesture showing either(Rock/Paper/Scissors/Nothing)
 """
 
-
 import cv2
 import random
 from keras.models import load_model
@@ -53,24 +52,20 @@ class RockPaperScissor:
             prediction(list):A list which contains the probabilities of 4 classes Rock, Paper, Scissors and Nothing
 
         Returns:
-            user_choice(variable): This is a variable which will contain the the user input shown to the camera.
+            user_choice(variable): This is a variable which will update the user input shown to the camera from predictions list.
 
         This function takes in prediction as an argument and has 3 if statements to select user_choice as Rock or Paper or Scissors based on the prediction(list) else it will choose Nothing class
         To select the index which has the highest value from prediciton, argmax() method of numpy library is used.
-        user_choice is retuned in each if-else statement, which will contain the index of highest probablity from the list
+        user_choice is updated in each if-else statement, which will contain the index of highest probablity from the list
         """
         if np.argmax(prediction) == 0:
             self.user_choice = 'Rock'
-            return self.user_choice
         elif np.argmax(prediction) == 1:
             self.user_choice = 'Paper'
-            return self.user_choice
         elif np.argmax(prediction) == 2:
             self.user_choice = 'Scissors'
-            return self.user_choice 
         else:
             self.user_choice = 'Nothing'
-            return self.user_choice
 
     def load_model(self):
             """
@@ -83,12 +78,12 @@ class RockPaperScissor:
             Returns:
                 prediction(list): A list which contains probabilites of 4 classes, Rock, Paper, Scissors & Nothing class
             """
-            # elapsed time is calculated since the camera starts recording the input until the user presses "q"
             start_time = time.time()
+            while time.time() - start_time <=3:
+                print(3 - int(time.time() - start_time))
             model = load_model('keras_model.h5')
             cap = cv2.VideoCapture(0)
             data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-            countdown = start_time + 5
             while True: 
                 ret, frame = cap.read()
                 resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
@@ -98,13 +93,9 @@ class RockPaperScissor:
                 prediction = model.predict(data)
                 cv2.imshow('frame', frame)
                 self.get_user_choice(prediction)
-                print(countdown - start_time)
                 # Press q to close the window
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break 
-            current_time = time.time()
-            elapsed_time = {current_time - start_time}
-            print(f"Time elapsed: {elapsed_time} seconds since the script started")
             # After the loop release the cap object
             cap.release()
             # Destroy all the windows
@@ -122,7 +113,7 @@ class RockPaperScissor:
             user_wins(int):This is the score of user
             computer_wins(int):This is the score of computer
         """
-        while self.computer_wins < 3 or self.user_wins < 3:
+        while self.computer_wins and self.user_wins <3:
             if (self.computer_choice == 'Rock' and self.user_choice == 'Paper') or (self.computer_choice == 'Paper' and self.user_choice == 'Scissors') or (self.computer_choice == 'Scissors' and self.user_choice == 'Rock'):
                 self.user_wins +=1
                 print("You Won!")
@@ -140,8 +131,8 @@ class RockPaperScissor:
             self.get_computer_choice()
             self.load_model()
             self.get_winner()
-            print(f"No. of runs: user chose : {self.user_choice}, computer chose : {self.computer_choice}")
-            print(f"user score is : {self.user_wins} computer score is : {self.computer_wins}")
+            print(f" You chose: {self.user_choice}, Computer chose: {self.computer_choice}")
+            print(f" Your score is: {self.user_wins} Computer score is: {self.computer_wins}")
             if self.user_wins == 3:
                 print("User wins")
                 exit()
