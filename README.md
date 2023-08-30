@@ -5,7 +5,7 @@
 ### To run this game yourself please follow the steps below
 - First you have to clone this repository to your local machine. Create a directory where you want to save the game and then *paste this code* in the terminal:
 ``` git clone <https://github.com/Imaduddin-Mohammed/computer-vision-rock-paper-scissors.git> ```
-- To install the dependencies from file named **requirements.txt**, make sure you do this in the intended environment you wish to install, *copy and paste* the following code:
+- Next install the dependencies from file named **requirements.txt**, make sure you do this in the intended environment you wish to install, *copy and paste* the following code:
 ```python
 pip install requirements.txt
 ```
@@ -13,31 +13,30 @@ pip install requirements.txt
 ```python
 python camera_rps.py
 ```
-- Now provide the input to the camera in the form of 'Rock' or 'Paper' or 'Scissors' or 'Nothing' and pressing **q** on the keyboard will feed the input, this will be looped until one of the player finally wins
-- Once a player wins, the game is terminated and ==Winner== is printed to the console.
+- Now provide the input to the camera in the form of 'Rock' or 'Paper' or 'Scissors' or 'Nothing' and pressing **q** on the keyboard will feed the input, this will be looped until one of the player wins the game.
+- Finally the Winner is printed to the console and the game ends!
 
 ## Milestone 1 
 > Setting up the environment
   - Created a git repository for this project and cloned it to my local machine.
 
 ## Milestone 2
-> Creating the Computer Vision System
-  - First task will involve creating the model which is basically the webcam of computer recognizing the inputs Rock, Paper, Scissors and Nothing as input.
+> Creating the Computer Vision System.
 
 ### Task 1
 - Creating image project model which has 4 classes namely Rock, Paper, Scissors and Nothing
-- Google's ==Teachable machine== was used to train the 4 classes and train the model.
+- Google's Teachable machine was used to train the 4 classes and train the model.
 ![Google's Teachable Machine]()
 ### Task 2 
-- Downloading the trained model from ==Tensorflow tab== of ==Teachable Machine== in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
+- Downloading the trained model from Tensorflow tab of Teachable Machine in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
 - These files contain the structure and the parameters of the deep learning model.
 
 ## Milestone 3
-> Installing the Dependencies
+> Installing the Dependencies and Ensuring the Computer Vision System Works
 ### Task1
-- Created a new virtual environment
+- Created a new Virtual Environment
 - The following dependencies are essential for this project, installed them using *``` pip install <packagename> ```*
-- opencv-python,tensorflow, ipykernel
+   > opencv-python,tensorflow, ipykernel
 ### Task2
 > To ensure that the *keras_model.h5* model works I ran the following code:
 ```python
@@ -74,8 +73,8 @@ Predictions holds a list of probabilites as shown below
 # Milestone 4
 > Created a python script that will simulate the rock paper scissors game and compare the input with the computer's choice and show the winner
 ##Task 1
-- Storing the users and computer's choice
-- This is done manually without a camera as shown below
+- Storing the users and computer's choice in variables 
+- This is done manually without a camera as shown below 
 ![manual_rps.py]()
 
 
