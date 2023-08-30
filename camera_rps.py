@@ -54,10 +54,11 @@ class RockPaperScissor:
 
         Returns:
             user_choice(variable): This is a variable which will contain the the user input shown to the camera.
+
+        This function takes in prediction as an argument and has 3 if statements to select user_choice as Rock or Paper or Scissors based on the prediction(list) else it will choose Nothing class
+        To select the index which has the highest value from prediciton, argmax() method of numpy library is used.
+        user_choice is retuned in each if-else statement, which will contain the index of highest probablity from the list
         """
-        # This function takes in prediction as an argument and has 3 if statements to select user_choice as Rock or Paper or Scissors based on the prediction(list) else it will choose Nothing class
-        # To select the index which has the highest value from prediciton, argmax() method of numpy library is used.
-        # user_choice is retuned in each if-else statement, which will contain the index of highest probablity from the list
         if np.argmax(prediction) == 0:
             self.user_choice = 'Rock'
             return self.user_choice
