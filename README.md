@@ -90,8 +90,8 @@ cv2.destroyAllWindows()
 > Using the Camera to play the game
 ### Task1 
 > Putting it all together
-- Replacing the hard-coded user guess in **manual_rps.py** by the trained model **keras_model.h5** so that the camera can capture
-- Creating a new file **camera_rps.py** 
+- Replacing the hard-coded user guess in **manual_rps.py** by the trained model **keras_model.h5** so that the camera can capture input
+- Creating a new file **camera_rps.py** which will have the code to play the game with the camera
 ![Camera_rps](camera_rps.png)
   - Created a class called *RockPaperScissor*
   - Defined 2 Attributes *computer_wins* & *user_wins* and initilized them to 0
