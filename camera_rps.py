@@ -14,7 +14,7 @@ import time
 
 
 class RockPaperScissor:
-    """ 
+    """
     This class contains methods that are essential to play the computer vision RockPaperScissors game.
 
     It contains the following five(5) methods:
@@ -29,22 +29,23 @@ class RockPaperScissor:
         computer_wins(int): This variable keeps track of the computer score.
         user_wins(int): This variable keeps track of the user score.
     """
+
     def __init__(self):
         """Constructor for the class"""
         self.computer_wins = 0
         self.user_wins = 0
 
     def get_computer_choice(self):
-        """"
+        """ "
         This function captures the computer choice randomly & the choice() method of random module is used to capture a value from the list of values: [Rock, Paper, Scissors]
 
         Returns:
             computer_choice(variable):Contains any 1 value from this list [Rock, Paper, Scissors].
         """
-        self.computer_choice = random.choice(['Rock','Paper','Scissors'])
+        self.computer_choice = random.choice(["Rock", "Paper", "Scissors"])
         return self.computer_choice
-        
-    def get_user_choice(self,prediction):
+
+    def get_user_choice(self, prediction):
         """
         This function will calculate the user_choice
 
@@ -59,48 +60,50 @@ class RockPaperScissor:
         user_choice is updated in each if-else statement, which will contain the index of highest probablity from the list
         """
         if np.argmax(prediction) == 0:
-            self.user_choice = 'Rock'
+            self.user_choice = "Rock"
         elif np.argmax(prediction) == 1:
-            self.user_choice = 'Paper'
+            self.user_choice = "Paper"
         elif np.argmax(prediction) == 2:
-            self.user_choice = 'Scissors'
+            self.user_choice = "Scissors"
         else:
-            self.user_choice = 'Nothing'
+            self.user_choice = "Nothing"
 
     def load_model(self):
-            """
-            This function contains the code to load the trained model "keras_model.h5"
+        """
+        This function contains the code to load the trained model "keras_model.h5"
 
-            The function contains all the code to open the camera and capture the input of the user
-            If "q" is pressed on the keyboard this will capture the image i.e user_choice and close the camera and exit the while loop
-            Inside the while loop, get_user_choice(prediction) function is called by passing the prediction as argument which returns user_choice.
+        The function contains all the code to open the camera and capture the input of the user
+        If "q" is pressed on the keyboard this will capture the image i.e user_choice and close the camera and exit the while loop
+        Inside the while loop, get_user_choice(prediction) function is called by passing the prediction as argument which returns user_choice.
 
-            Returns:
-                prediction(list): A list which contains probabilites of 4 classes, Rock, Paper, Scissors & Nothing class
-            """
-            start_time = time.time()
-            while time.time() - start_time <=3:
-                print(3 - int(time.time() - start_time))
-            model = load_model('keras_model.h5')
-            cap = cv2.VideoCapture(0)
-            data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-            while True: 
-                ret, frame = cap.read()
-                resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
-                image_np = np.array(resized_frame)
-                normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
-                data[0] = normalized_image
-                prediction = model.predict(data)
-                cv2.imshow('frame', frame)
-                self.get_user_choice(prediction)
-                print(prediction)
-                # Press q to close the window
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    break 
-            # After the loop release the cap object
-            cap.release()
-            # Destroy all the windows
-            cv2.destroyAllWindows()
+        Returns:
+            prediction(list): A list which contains probabilites of 4 classes, Rock, Paper, Scissors & Nothing class
+        """
+        start_time = time.time()
+        while time.time() - start_time <= 3:
+            print(3 - int(time.time() - start_time))
+        model = load_model("keras_model.h5")
+        cap = cv2.VideoCapture(0)
+        data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+        while True:
+            ret, frame = cap.read()
+            resized_frame = cv2.resize(frame, (224, 224), interpolation=cv2.INTER_AREA)
+            image_np = np.array(resized_frame)
+            normalized_image = (
+                image_np.astype(np.float32) / 127.0
+            ) - 1  # Normalize the image
+            data[0] = normalized_image
+            prediction = model.predict(data)
+            cv2.imshow("frame", frame)
+            self.get_user_choice(prediction)
+            print(prediction)
+            # Press q to close the window
+            if cv2.waitKey(1) & 0xFF == ord("q"):
+                break
+        # After the loop release the cap object
+        cap.release()
+        # Destroy all the windows
+        cv2.destroyAllWindows()
 
     def get_winner(self):
         """
@@ -114,17 +117,21 @@ class RockPaperScissor:
             user_wins(int):This is the score of user
             computer_wins(int):This is the score of computer
         """
-        while self.computer_wins and self.user_wins <3:
-            if (self.computer_choice == 'Rock' and self.user_choice == 'Paper') or (self.computer_choice == 'Paper' and self.user_choice == 'Scissors') or (self.computer_choice == 'Scissors' and self.user_choice == 'Rock'):
-                self.user_wins +=1
+        while self.computer_wins and self.user_wins < 3:
+            if (
+                (self.computer_choice == "Rock" and self.user_choice == "Paper")
+                or (self.computer_choice == "Paper" and self.user_choice == "Scissors")
+                or (self.computer_choice == "Scissors" and self.user_choice == "Rock")
+            ):
+                self.user_wins += 1
                 print("You Won!")
                 return self.user_wins
             elif self.computer_choice == self.user_choice:
                 print("It's a Tie!")
             else:
-                self.computer_wins +=1
+                self.computer_wins += 1
                 print("You Lost!, Computer is the winner")
-            return self.computer_wins 
+            return self.computer_wins
 
     def play(self):
         """This function will start the game"""
@@ -132,13 +139,19 @@ class RockPaperScissor:
             self.get_computer_choice()
             self.load_model()
             self.get_winner()
-            print(f" You chose: {self.user_choice}, Computer chose: {self.computer_choice}")
-            print(f" Your score is: {self.user_wins} Computer score is: {self.computer_wins}")
+            print(
+                f" You chose: {self.user_choice}, Computer chose: {self.computer_choice}"
+            )
+            print(
+                f" Your score is: {self.user_wins} Computer score is: {self.computer_wins}"
+            )
             if self.user_wins == 3:
                 print("User wins")
                 exit()
-            elif self.computer_wins ==3:
+            elif self.computer_wins == 3:
                 print("Computer wins")
                 exit()
+
+
 game = RockPaperScissor()
 game.play()
