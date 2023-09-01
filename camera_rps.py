@@ -93,6 +93,7 @@ class RockPaperScissor:
                 prediction = model.predict(data)
                 cv2.imshow('frame', frame)
                 self.get_user_choice(prediction)
+                print(prediction)
                 # Press q to close the window
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break 
@@ -124,7 +125,7 @@ class RockPaperScissor:
                 self.computer_wins +=1
                 print("You Lost!, Computer is the winner")
             return self.computer_wins 
-    
+
     def play(self):
         """This function will start the game"""
         while True:
@@ -141,9 +142,3 @@ class RockPaperScissor:
                 exit()
 game = RockPaperScissor()
 game.play()
-
-
-
-
-
-

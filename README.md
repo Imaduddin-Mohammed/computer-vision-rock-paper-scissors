@@ -25,7 +25,8 @@ python camera_rps.py
 ### Task 1
 - Creating image project model which has 4 classes namely Rock, Paper, Scissors and Nothing
 - Google's Teachable machine was used to train the 4 classes and train the model as shown below
-![training_model](computer-vision-rock-paper-scissors\teachable_machine_model_training.png)
+![training_model](teachable_machine_model_training.png)
+
 ### Task 2 
 - Downloading the trained model from Tensorflow tab of Teachable Machine in keras format and named the file **keras_model.h5** and its labels as **labels.txt**
 - These files contain the structure and the parameters of the deep learning model.
@@ -67,14 +68,14 @@ cv2.destroyAllWindows()
 - The main thing in the above code is the *prediction* variable which will containg the output in the form of floating numbers which are rock, paper, scissors and nothing probabilities respectively.
 - For example, if the prediction has the following output: [[0.8, 0.1, 0.05, 0.05]], there is an 80% chance that the input image shows rock, a 10% chance that it shows paper, a 5% chance that it shows scissors, and a 5% chance that it shows nothing
 - Predictions holds a list of probabilites as shown below
-![Prediction]()
+![Prediction](prediction.png)
 
 ## Milestone 4
 > Creating a python script that will simulate the rock paper scissors game and compare the input with the computer's choice and show the winner
 ### Task 1
 - Storing the users and computer's choice in variables 
 - This is done manually without a camera as shown below 
-![manual_game](computer-vision-rock-paper-scissors\manual_rps.png)
+![manual_game](manual_rps.png)
 ### Task 2
 > Finding out who won
 - Introduced if-elif-else statements, the script should now choose a winner based on the classic rules of Rock-Paper-Scissors
@@ -83,16 +84,17 @@ cv2.destroyAllWindows()
 ### Task 3 
 > Creating a function that will play the game
 - All the code in **manual_rps.py** is now part of the game, hence wrapping it up in a function called *play* in **play_computer-vision.py**
-![Play_game]()
+![Play_game](play_computer-vision.png)
 
 ## Milestone 5
 > Using the Camera to play the game
 ### Task1 
 > Putting it all together
-- Replacing the hard-coded user guess in **manual_rps.py** by the trained model **keras_model.h5** so that the camera will guess
+- Replacing the hard-coded user guess in **manual_rps.py** by the trained model **keras_model.h5** so that the camera can capture
 - Creating a new file **camera_rps.py** 
-  - Created a class called **RockPaperScissor*
-  - defined 2 Attributes *computer_wins* & *user_wins* and initilized them to 0
+![Camera_rps](camera_rps.png)
+  - Created a class called *RockPaperScissor*
+  - Defined 2 Attributes *computer_wins* & *user_wins* and initilized them to 0
   - *get_computer_choice()* returns the computer choice randomly
   - *get_user_choice()* returns the user choice, wherein  I have used the *.argmax()* method of the numpy library to select the index of the highest probability from *predictions* list.
 ### Task 2
@@ -106,8 +108,8 @@ start_time = time.time()
 ```                
 - The above code will print *1, 2 & 3* on the console and then the camera opens to capture the input, this ensures that the user has enough time to prepare for the next round.
 ### Task 3
-> Repeating until a player gets 3 victories
-- In the *get_winner()* introduced a while loop that ensures this.
+> Repeating the game until a player gets 3 victories
+- In the *get_winner()* function introduced a while loop that ensures this.
 ```python
 def get_winner(self):
   while self.computer_wins and self.user_wins <3:
