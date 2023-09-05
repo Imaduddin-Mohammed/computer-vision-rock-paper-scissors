@@ -43,7 +43,6 @@ class RockPaperScissor:
             computer_choice(variable):Contains any 1 value from this list [Rock, Paper, Scissors].
         """
         self.computer_choice = random.choice(["Rock", "Paper", "Scissors"])
-        return self.computer_choice
 
     def get_user_choice(self, prediction):
         """
