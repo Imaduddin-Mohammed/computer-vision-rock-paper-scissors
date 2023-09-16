@@ -117,20 +117,18 @@ class RockPaperScissor:
             computer_wins(int):This is the score of computer
         """
         while self.computer_wins and self.user_wins < 3:
-            if (
+            if(
                 (self.computer_choice == "Rock" and self.user_choice == "Paper")
                 or (self.computer_choice == "Paper" and self.user_choice == "Scissors")
                 or (self.computer_choice == "Scissors" and self.user_choice == "Rock")
             ):
                 self.user_wins += 1
                 print("You Won!")
-                return self.user_wins
             elif self.computer_choice == self.user_choice:
                 print("It's a Tie!")
             else:
                 self.computer_wins += 1
                 print("You Lost!, Computer is the winner")
-            return self.computer_wins
 
     def play(self):
         """This function will start the game"""
